@@ -33,10 +33,16 @@ const DeckOfCards = () => {
         fetchData()
     }, [])
 
+    const addCard = (newCard) => {
+        setDeck({
+            cards: [...deck.cards, newCard]
+        })
+    }
+
     return (
         <section>
-            <Form />
-            {deck.cards.length > 0 ? <CardList cards={deck.cards} /> : "Nenhuma carta encontrada "}
+            <Form addCard={addCard} />
+            <CardList cards={deck.cards}/>
         </section>
     )
 
